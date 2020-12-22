@@ -1,0 +1,31 @@
+@startuml
+title usecase17 **考表查看**
+
+
+[-> GUI : 登录系统（账号，密码）
+activate GUI
+create Login
+GUI -> Login : create(用户)
+activate Login
+deactivate GUI
+
+[-> GUI : 进入考表查询界面（）
+activate GUI
+deactivate GUI
+
+loop
+[-> GUI : 考表查询（学生，学期）
+activate GUI
+GUI -> ExamTable : 考表查询（学生，学期）
+activate ExamTable
+ExamTable --> GUI : 返回结果（）
+deactivate ExamTable
+deactivate GUI
+
+[-> GUI : 离开系统（）
+activate GUI
+
+GUI -> Login : delete（用户）
+destroy Login
+deactivate GUI
+@enduml

@@ -1,0 +1,31 @@
+@startuml
+title usecase14 **考试成绩录入**
+
+[-> GUI : 登录系统（账号，密码）
+activate GUI
+create Login
+GUI -> Login : create(用户)
+activate Login
+deactivate GUI
+
+[-> GUI : 进入成绩录入界面（）
+activate GUI
+deactivate GUI
+
+[-> GUI : 录入成绩（课程，学生，成绩）
+activate GUI
+create ScoreRecord
+GUI -> ScoreRecord : create(课程，学生，成绩)
+activate ScoreRecord
+GUI -> ScoreRecord : 核查成绩（课程，学生）
+ScoreRecord --> GUI : 展示成绩（课程，学生，成绩）
+deactivate ScoreRecord
+deactivate GUI
+
+[-> GUI : 离开系统（）
+activate GUI
+
+GUI -> Login : delete（用户）
+destroy Login
+deactivate GUI
+@enduml

@@ -1,0 +1,27 @@
+@startuml
+title usecase22 **查看培养方案**
+
+
+[-> GUI : 登录系统（账号，密码）
+activate GUI
+create Login
+GUI -> Login : create(用户)
+activate Login
+deactivate GUI
+
+[-> GUI : 进入培养方案界面（）
+activate GUI
+GUI -> EducationProgram : 查询培养方案（学生）
+activate EducationProgram
+EducationProgram --> GUI : 返回结果（）
+deactivate EducationProgram
+GUI -> GUI : 展示培养方案（）
+deactivate GUI
+
+[-> GUI : 离开系统（）
+activate GUI
+
+GUI -> Login : delete（用户）
+destroy Login
+deactivate GUI
+@enduml

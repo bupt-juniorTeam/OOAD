@@ -1,0 +1,31 @@
+@startuml
+title usecase18 **补考信息发布**
+
+
+[-> GUI : 登录系统（账号，密码）
+activate GUI
+create Login
+GUI -> Login : create(用户)
+activate Login
+deactivate GUI
+
+[-> GUI : 进入补考发布界面（）
+activate GUI
+deactivate GUI
+
+loop
+[-> GUI : 生成考表（课程，学生名单，时间）
+activate GUI
+GUI -> ExamTable : 生成考表（课程，学生名单，时间）
+activate ExamTable
+deactivate ExamTable
+deactivate GUI
+end
+
+[-> GUI : 离开系统（）
+activate GUI
+
+GUI -> Login : delete（用户）
+destroy Login
+deactivate GUI
+@enduml

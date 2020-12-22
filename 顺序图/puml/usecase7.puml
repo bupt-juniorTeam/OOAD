@@ -1,0 +1,36 @@
+@startuml
+title usecase7 **学生查看课表**
+
+
+[-> GUI : 登录系统（账号，密码）
+activate GUI
+create Login
+GUI -> Login : create(用户)
+activate Login
+deactivate GUI
+
+[-> GUI : 进入课程列表界面（）
+activate GUI
+GUI -> Course : 查询课程（）
+activate Course
+Course --> GUI : 返回结果（）
+deactivate Course
+GUI -> GUI : 展示课程列表（）
+deactivate GUI
+
+loop
+[-> GUI : 查询课表（周次，查询条件）
+activate GUI
+GUI -> CourseArrangement : 查询课表（周次，查询条件）
+CourseArrangement --> GUI : 返回课表（）
+GUI -> GUI : 显示课表（）
+deactivate GUI
+end
+
+[-> GUI : 离开系统（）
+activate GUI
+
+GUI -> Login : delete（用户）
+destroy Login
+deactivate GUI
+@enduml

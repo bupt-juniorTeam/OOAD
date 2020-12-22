@@ -1,0 +1,31 @@
+@startuml
+title usecase19 **免修考试的申请与安排**
+
+
+[-> GUI : 登录系统（账号，密码）
+activate GUI
+create Login
+GUI -> Login : create(用户)
+activate Login
+deactivate GUI
+
+[-> GUI : 审核免修申请（NoStudyApply）
+activate GUI
+GUI -> NoStudyApply : 审核免修申请（审核结果）
+deactivate GUI
+
+[-> GUI : 安排免修考试（NoStudyApply，时间，地点）
+activate GUI
+create ExamArrangement
+GUI -> ExamArrangement : 安排考试（学生，课程，时间，地点）
+deactivate GUI
+
+[-> GUI : 离开系统（）
+activate GUI
+
+GUI -> Login : delete（用户）
+destroy Login
+deactivate GUI
+@enduml
+
+@enduml

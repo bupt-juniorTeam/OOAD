@@ -1,0 +1,31 @@
+@startuml
+title usecase5 **教师提交开课申请**
+
+
+[-> GUI : 登录系统（账号，密码）
+activate GUI
+create Login
+GUI -> Login : create(用户)
+activate Login
+deactivate GUI
+
+[-> GUI : 进入开课申请界面（）
+activate GUI
+GUI -> GUI : 展示申请界面（）
+deactivate GUI
+
+loop
+[-> GUI : 申请开课（课程，课程信息）
+activate GUI
+create CourseApply
+GUI -> CourseApply : create(课程，课程信息)
+deactivate GUI
+end
+
+[-> GUI : 离开系统（）
+activate GUI
+
+GUI -> Login : delete（用户）
+destroy Login
+deactivate GUI
+@enduml

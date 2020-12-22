@@ -1,0 +1,38 @@
+@startuml
+title usecase9 **教师查看选课名单**
+
+
+[-> GUI : 登录系统（账号，密码）
+activate GUI
+create Login
+GUI -> Login : create(用户)
+activate Login
+deactivate GUI
+
+[-> GUI : 进入课程列表界面（）
+activate GUI
+GUI -> Course : 查询课程（）
+activate Course
+Course --> GUI : 返回结果（）
+deactivate Course
+GUI -> GUI : 展示课程列表（）
+deactivate GUI
+
+
+loop
+[-> GUI : 查看选课名单（课程）
+activate GUI
+GUI -> MemberList : 查看选课名单（课程）
+activate MemberList
+MemberList --> GUI : 返回选课名单（）
+deactivate MemberList
+deactivate GUI
+end
+
+[-> GUI : 离开系统（）
+activate GUI
+
+GUI -> Login : delete（用户）
+destroy Login
+deactivate GUI
+@enduml

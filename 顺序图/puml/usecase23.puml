@@ -1,0 +1,29 @@
+@startuml
+title usecase23 **查看成绩单**
+
+
+[-> GUI : 登录系统（账号，密码）
+activate GUI
+create Login
+GUI -> Login : create(用户)
+activate Login
+deactivate GUI
+
+[-> GUI : 进入成绩单界面（学生）
+activate GUI
+GUI -> ScoreRecord : 查询成绩（课程）
+activate ScoreRecord
+ScoreRecord --> GUI : 返回结果（）
+deactivate ScoreRecord
+GUI -> GUI : 展示查询结果（）
+[-> GUI : 打印成绩单（）
+GUI -> GUI : 开始下载成绩单（）
+deactivate GUI
+
+[-> GUI : 离开系统（）
+activate GUI
+
+GUI -> Login : delete（用户）
+destroy Login
+deactivate GUI
+@enduml

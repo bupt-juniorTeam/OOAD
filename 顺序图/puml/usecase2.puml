@@ -1,0 +1,31 @@
+@startuml
+title usecase2 **学生查看已选课程**
+
+
+[-> GUI : 登录系统（账号，密码）
+activate GUI
+create Login
+GUI -> Login : create(用户)
+activate Login
+deactivate GUI
+
+[-> GUI : 进入学生管理界面（）
+activate GUI
+GUI -> GUI : 展示已选课程（）
+deactivate GUI
+
+loop
+[-> GUI : 导出课表（课程，导出格式）
+activate GUI
+GUI -> Course : 查询课表（课程）
+GUI -> GUI : 开启课表下载（）
+deactivate GUI
+end
+
+[-> GUI : 离开系统（）
+activate GUI
+
+GUI -> Login : delete（用户）
+destroy Login
+deactivate GUI
+@enduml

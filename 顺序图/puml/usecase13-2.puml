@@ -1,0 +1,23 @@
+@startuml
+title usecase13 **免考与缓考申请**
+
+
+[-> GUI : 登录系统（账号，密码）
+activate GUI
+create Login
+GUI -> Login : create(用户)
+activate Login
+deactivate GUI
+
+[-> GUI : 初审免考缓考申请（noExamApply，初审结果）
+activate GUI
+create noExamApply
+GUI -> noExamApply : 初审免考缓考申请（初审结果）
+deactivate GUI
+[-> GUI : 离开系统（）
+activate GUI
+
+GUI -> Login : delete（用户）
+destroy Login
+deactivate GUI
+@enduml

@@ -1,0 +1,38 @@
+@startuml
+title usecase3 **教师进行教室或实验室的申请**
+
+
+[-> GUI : 登录系统（账号，密码）
+activate GUI
+create Login
+GUI -> Login : create(用户)
+activate Login
+deactivate GUI
+
+[->  GUI : 进入教师管理界面（）
+activate GUI
+GUI -> GUI : 展示已选课程（）
+deactivate GUI
+
+loop
+[-> GUI : 选择筛选条件（条件）
+activate GUI
+GUI -> GUI : 显示筛选结果（）
+[-> GUI : 对结果进行排序（排序方式）
+GUI -> GUI : 显示排序结果（）
+deactivate GUI
+end
+
+[-> GUI : 申请教室（教室，申请信息）
+activate GUI
+create ClassroomApply
+GUI -> ClassroomApply : create(教室，申请信息)
+deactivate GUI
+
+[-> GUI : 离开系统（）
+activate GUI
+
+GUI -> Login : delete（用户）
+destroy Login
+deactivate GUI
+@enduml

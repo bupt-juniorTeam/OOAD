@@ -1,0 +1,51 @@
+@startuml
+title usecase1 **学生退、补、选课**
+participant Login order 3
+participant "Course Selection Record" as csr order 2
+
+[-> GUI : 登录系统（账号，密码）
+activate GUI
+create Login
+GUI -> Login : create(用户)
+activate Login
+deactivate GUI
+
+[-> GUI : 进入选课界面（）
+activate GUI
+GUI -> Course : 查询课程（）
+activate Course
+Course --> GUI : 返回结果（）
+deactivate Course
+GUI -> GUI : 展示课程列表（）
+deactivate GUI
+
+loop
+[-> GUI : 选课/退课（课程）
+activate GUI
+create csr
+GUI -> csr : create(学生，课程)
+activate csr
+csr --> GUI : 提示消息（）
+deactivate csr
+end
+
+GUI -> GUI : 退出选课界面（）
+deactivate GUI
+
+[-> GUI : 打印课表（课程）
+activate GUI
+GUI -> Course : 查询课表（课程）
+activate Course
+Course --> GUI : 返回课表（）
+deactivate Course
+
+GUI -> GUI : 开启课表下载（）
+deactivate GUI
+
+[-> GUI : 离开系统（）
+activate GUI
+
+GUI -> Login : delete（用户）
+destroy Login
+deactivate GUI
+@enduml

@@ -1,0 +1,29 @@
+@startuml
+title usecase20 **查看学籍信息**
+
+
+[-> GUI : 登录系统（账号，密码）
+activate GUI
+create Login
+GUI -> Login : create(用户)
+activate Login
+deactivate GUI
+
+[-> GUI : 进入学籍信息界面（）
+activate GUI
+deactivate GUI
+
+[-> GUI : 查询学籍（学生）
+activate GUI
+GUI -> UniversityMajor : 查询学籍（）
+UniversityMajor --> GUI : 返回结果（）
+GUI -> GUI : 显示学籍信息（）
+deactivate GUI
+
+[-> GUI : 离开系统（）
+activate GUI
+
+GUI -> Login : delete（用户）
+destroy Login
+deactivate GUI
+@enduml

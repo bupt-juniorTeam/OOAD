@@ -1,0 +1,30 @@
+@startuml
+title usecase21 **更改学籍信息**
+
+
+[-> GUI : 登录系统（账号，密码）
+activate GUI
+create Login
+GUI -> Login : create(用户)
+activate Login
+deactivate GUI
+
+[-> GUI : 进入学籍变更界面（）
+activate GUI
+deactivate GUI
+
+[-> GUI : 修改学生信息（学生，信息）
+activate GUI
+GUI -> UniversityMajor : 修改学生信息（信息）
+activate UniversityMajor
+UniversityMajor --> GUI : 返回结果（）
+deactivate UniversityMajor
+deactivate GUI
+
+[-> GUI : 离开系统（）
+activate GUI
+
+GUI -> Login : delete（用户）
+destroy Login
+deactivate GUI
+@enduml

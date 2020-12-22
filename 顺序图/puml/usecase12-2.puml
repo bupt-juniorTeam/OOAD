@@ -1,0 +1,28 @@
+@startuml
+title usecase12 **考核形式申请**
+
+
+[-> GUI : 登录系统（账号，密码）
+activate GUI
+create Login
+GUI -> Login : create(用户)
+activate Login
+deactivate GUI
+
+[-> GUI : 考核形式申请审核（申请，审核结果）
+activate GUI
+GUI -> ExamFormApply : 考核形式申请审核（审核结果）
+activate ExamFormApply
+create ExamForm
+ExamFormApply -> ExamForm : create(课程，考核形式)
+ExamFormApply --> GUI : 返回结果（）
+deactivate ExamFormApply
+deactivate GUI
+
+[-> GUI : 离开系统（）
+activate GUI
+
+GUI -> Login : delete（用户）
+destroy Login
+deactivate GUI
+@enduml
